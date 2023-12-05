@@ -1,0 +1,55 @@
+\hypertarget{mainwindow_8h_source}{}\doxysection{mainwindow.\+h}
+\mbox{\hyperlink{mainwindow_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#ifndef MAINWINDOW\_H}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define MAINWINDOW\_H}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <QMainWindow>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 QT\_BEGIN\_NAMESPACE}
+\DoxyCodeLine{12 \textcolor{keyword}{namespace }Ui \{ \textcolor{keyword}{class }\mbox{\hyperlink{class_main_window}{MainWindow}}; \}}
+\DoxyCodeLine{13 QT\_END\_NAMESPACE}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_edges}{Edges}}}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     \textcolor{keywordtype}{int} u;  \textcolor{comment}{// Откуда}}
+\DoxyCodeLine{19     \textcolor{keywordtype}{int} v;  \textcolor{comment}{// Куда}}
+\DoxyCodeLine{20     \textcolor{keywordtype}{int} w;  \textcolor{comment}{// Расстояние}}
+\DoxyCodeLine{21 \};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{class_main_window}{MainWindow}} : \textcolor{keyword}{public} QMainWindow}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25     Q\_OBJECT}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{30     \mbox{\hyperlink{class_main_window_a996c5a2b6f77944776856f08ec30858d}{MainWindow}}(QWidget *parent = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{33     \mbox{\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{\string~MainWindow}}();}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} on\_create\_button\_clicked();}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} on\_get\_answer\_button\_clicked();}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{public} slots:}
+\DoxyCodeLine{47     std::vector<int> \mbox{\hyperlink{class_main_window_ae1b5ea57b786183c2c153525435dd29d}{Enter}}(std::vector<std::vector<int>> matrix, \textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} start);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{53     std::vector<int> \mbox{\hyperlink{class_main_window_a9f4e636a81f64aba8b636de7538d21e6}{bellman\_ford}}(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} s, \textcolor{keywordtype}{int} e);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{keyword}{private}:}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     Ui::MainWindow *ui; }
+\DoxyCodeLine{58     \textcolor{keywordtype}{bool} empty\_table = \textcolor{keyword}{true}; }
+\DoxyCodeLine{59     \textcolor{keywordtype}{int} count = 0; }
+\DoxyCodeLine{60     \textcolor{keywordtype}{int} start = 0; }
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \mbox{\hyperlink{struct_edges}{Edges}} edge[499]; }
+\DoxyCodeLine{63     \textcolor{keywordtype}{int} d[1000]; }
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \};}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// MAINWINDOW\_H}}
+
+\end{DoxyCode}
