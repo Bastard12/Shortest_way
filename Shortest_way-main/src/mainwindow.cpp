@@ -1,13 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <QTableWidgetItem>
-#include <QString>
-
-//#include "Graph.cpp"
-
-#include <vector>
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -61,8 +54,44 @@ void MainWindow::on_get_answer_button_clicked()
     {
         ui->edit_answer->append("Distance to the edge " + QString::number(i+1) + " --  " + QString::number(answer[i]));
     }
-
-
 }
 
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    ui->table->clear();
+    QFile file(QFileDialog::getOpenFileName(this, "Title"));
+    std::vector<std::vector<QString>> input;
+
+    if (file.open(QIODevice::ReadOnly))
+    {
+        std::stringstream ss(file.readAll().toStdString());
+        std::string line;
+        while(std::getline(ss, line, '\n'))
+        {
+            input.push_back({});
+            std::stringstream ssline(line);
+            std::string number;
+            while(std::getline(ssline, number, ';'))
+            {
+                input[input.size()-1].push_back(QString::fromStdString(number));
+            }
+        }
+    }
+
+    int maxWidth = 0;
+    for (auto line: input) if ( line.size() > maxWidth ) maxWidth = line.size();
+
+    ui->table->setColumnCount(maxWidth);
+    ui->table->setRowCount(input.size());
+
+    for (int i = 0; i < input.size(); i += 1)
+    {
+        for (int j = 0; j < input[i].size(); j += 1)
+        {
+            ui->table->setItem(i,j, new QTableWidgetItem(input[i][j]));
+        }
+    }
+}
 

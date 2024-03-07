@@ -7,6 +7,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QFileDialog>
+#include <QTableWidgetItem>
+#include <QString>
+#include <QFile>
+#include <vector>
+#include <sstream>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -38,6 +44,9 @@ private slots:
 
     //! @brief Запуск алгоритма для расчета кратчайших путей
     void on_get_answer_button_clicked();
+
+    //! @brief Чтение графа из файла и запись в таблицу
+    void on_pushButton_clicked();
 
 public slots:
     //! @brief Преобразование матрицы в удобный для расчета вид
