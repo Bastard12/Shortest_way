@@ -8,6 +8,7 @@
 
 #include <QMainWindow>
 #include <QFileDialog>
+#include <QMessageBox>
 #include <QTableWidgetItem>
 #include <QString>
 #include <QFile>
@@ -48,6 +49,9 @@ private slots:
     //! @brief Чтение графа из файла и запись в таблицу
     void on_pushButton_clicked();
 
+    //! @brief Запись ответов в файл
+    void on_save_answer_button_clicked();
+
 public slots:
     //! @brief Преобразование матрицы в удобный для расчета вид
     //! @param[in] start Номер стартового узла
@@ -70,6 +74,7 @@ private:
 
     Edges edge[499]; //!< Массив узлов
     int d[1000]; //!< Массив промежуточных значений
+    std::vector<int> answer_{}; //!< Список расстояний
 
 };
 #endif // MAINWINDOW_H

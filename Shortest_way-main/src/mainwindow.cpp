@@ -54,6 +54,7 @@ void MainWindow::on_get_answer_button_clicked()
     {
         ui->edit_answer->append("Distance to the edge " + QString::number(i+1) + " --  " + QString::number(answer[i]));
     }
+    answer_ = answer;
 }
 
 
@@ -92,6 +93,27 @@ void MainWindow::on_pushButton_clicked()
         {
             ui->table->setItem(i,j, new QTableWidgetItem(input[i][j]));
         }
+    }
+}
+
+
+void MainWindow::on_save_answer_button_clicked()
+{
+    auto filePath = QFileDialog::getSaveFileName(this);
+    QFile file(filePath);
+
+    if (file.open(QIODevice::WriteOnly))
+    {
+        for (auto item : answer_)
+        {
+            file.write(std::to_string(item).c_str(), 1);
+            file.write("\n");
+        }
+        file.close();
+    }
+    else
+    {
+        QMessageBox::critical(this, "Save error", "Error with save to file!");
     }
 }
 
