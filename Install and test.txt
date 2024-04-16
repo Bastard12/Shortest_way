@@ -1,0 +1,13 @@
+Тестирование 
+	1) Выбрать csv файл с графом ( кнопка "From file" )
+	2) Нажать на кнопку "Get answer" для получения ответа 
+	3) Сравнить с результатами в файле /dep/answers.txt
+ 
+Сборка
+	1) Скачайте и установите Qt
+	2) Добавте Qt в переменную PATH
+	3) Скачайте репозиторий: git clone ()
+	4) Создайте папку для сборки: mkdir build ; cd build
+	5) Сгенерируйте проект: cmake ../ -DCMAKE_PREFIX_PATH={path to qt}.cmake -DCMAKE_BUILD_TYPE=Release
+	6) Соберите проект: cmake --build . --parallel --config release
+	7) Установите зависимости: cmake --install . 
